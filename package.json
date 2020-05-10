@@ -26,54 +26,80 @@
         "commands": [
             {
                 "command": "workbench.files.action.focusFilesExplorer",
-                "title": "1Files",
-                "icon": "./media/files-activity-bar.png"
+                "title": "touchbar.1.explorer",
+                "icon": "./media/files.png"
             },
             {
                 "command": "workbench.view.search",
-                "title": "2Search",
-                "icon": "./media/search-activity-bar.png"
+                "title": "touchbar.2.search",
+                "icon": "./media/search.png"
             },
             {
                 "command": "workbench.view.scm",
-                "title": "3Source",
-                "icon": "./media/scm-activity-bar.png"
+                "title": "touchbar.3.source",
+                "icon": "./media/source-control.png"
             },
             {
                 "command": "workbench.view.debug",
-                "title": "4Debug",
-                "icon": "./media/debug-alt-activity-bar.png"
+                "title": "touchbar.4.debug",
+                "icon": "./media/debug.png"
             },
             {
                 "command": "workbench.view.extensions",
-                "title": "5Extensions",
-                "icon": "./media/extensions-activity-bar.png"
+                "title": "touchbar.5.extensions",
+                "icon": "./media/extensions.png"
+            },
+            {
+                "command": "workbench.view.extension.atlascode-drawer",
+                "title": "touchbar.6.atlascode",
+                "icon": "./media/repo.png"
+            },
+            {
+                "command": "workbench.view.extension.github-pull-requests",
+                "title": "touchbar.6.github",
+                "icon": "./media/github.png"
+            },
+            {
+                "command": "workbench.view.extension.dockerView",
+                "title": "touchbar.7.dockerView",
+                "icon": "./media/archive.png"
             }
         ],
         "menus": {
             "touchBar": [
                 {
                     "command": "workbench.files.action.focusFilesExplorer",
-                    "when": "!inDebugMode",
                     "group": "display"
                 },
                 {
                     "command": "workbench.view.search",
-                    "when": "!inDebugMode",
                     "group": "display"
                 },
                 {
                     "command": "workbench.view.scm",
-                    "when": "!inDebugMode",
                     "group": "display"
                 },
                 {
                     "command": "workbench.view.debug",
-                    "when": "!inDebugMode",
                     "group": "display"
                 },
                 {
                     "command": "workbench.view.extensions",
+                    "when": "!inDebugMode",
+                    "group": "display"
+                },
+                {
+                    "command": "workbench.view.extension.atlascode-drawer",
+                    "when": "gitOpenRepositoryCount == 0 || !github:hasGitHubRemotes",
+                    "group": "display"
+                },
+                {
+                    "command": "workbench.view.extension.github-pull-requests",
+                    "when": "gitOpenRepositoryCount != 0 && github:hasGitHubRemotes",
+                    "group": "display"
+                },
+                {
+                    "command": "workbench.view.extension.dockerView",
                     "when": "!inDebugMode",
                     "group": "display"
                 }
