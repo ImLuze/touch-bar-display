@@ -27,7 +27,7 @@
             {
                 "command": "workbench.files.action.focusFilesExplorer",
                 "title": "touchbar.1.explorer",
-                "icon": "./media/files.png"
+                "icon": "./media/file.png"
             },
             {
                 "command": "workbench.view.search",
@@ -62,7 +62,7 @@
             {
                 "command": "workbench.view.extension.dockerView",
                 "title": "touchbar.7.dockerView",
-                "icon": "./media/archive.png"
+                "icon": "./media/container.png"
             }
         ],
         "menus": {
