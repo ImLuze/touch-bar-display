@@ -11,6 +11,7 @@ jobs:
         diff-search: true
         assume-same-version: new
   build:
+    needs: [check-version]
     runs-on: ubuntu-latest
     if: ${{ steps.check-version.outputs.changed }}
     steps:
