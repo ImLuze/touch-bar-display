@@ -13,7 +13,7 @@ jobs:
   build:
     needs: [check-version]
     runs-on: ubuntu-latest
-    if: steps.check-version.outputs.changed
+    if: needs.check-version.outputs.changed
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
@@ -21,9 +21,9 @@ jobs:
   upload:
     needs: [build, check-version]
     runs-on: ubuntu-latest
-    if: steps.check-version.outputs.changed
+    if: needs.check-version.outputs.changed
     steps:
     - uses: actions/upload-artifact@v2
       with: 
-        name: touch-bar-display-${{ steps.check-version.outputs.version }}
-        path: ./touch-bar-display-${{ steps.check-version.outputs.version }}
+        name: touch-bar-display-${{ needs.check-version.outputs.version }}
+        path: ./touch-bar-display-${{ needs.check-version.outputs.version }}
