@@ -1,14 +1,14 @@
 {
-    "name": "touch-bar-display",
-    "displayName": "Touch Bar Display Commands",
+    "name": "custom-touch-bar-display",
+    "displayName": "Custom Touch Bar Display Commands",
     "description": "Adds panel display focus commands to the MacBook's Touch Bar.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlairLeduc/touch-bar-display.git"
+        "url": "https://github.com/ImLuze/touch-bar-display.git"
     },
     "icon": "media/touch-bar-icon.png",
-    "version": "1.4.1",
-    "publisher": "blairleduc",
+    "version": "1.4.2",
+    "publisher": "ImLuze",
     "keywords": [
         "macbook",
         "touchbar",
