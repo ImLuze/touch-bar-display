@@ -12,6 +12,7 @@ jobs:
     steps:
     - uses: EndBug/version-check@v2
       with:
+        file-url: https://raw.githubusercontent.com/ImLuze/touch-bar-display/master/package.json
         diff-search: true
         assume-same-version: new
   upload:
