@@ -1,25 +1,28 @@
 name: Build
 on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-    - run: npx vsce package
   check-version:
     runs-on: ubuntu-latest
     steps:
-    - uses: EndBug/version-check@v2
+    - id: check-version
+      uses: EndBug/version-check@v2
       with:
         file-url: https://raw.githubusercontent.com/ImLuze/touch-bar-display/master/package.json
         diff-search: true
         assume-same-version: new
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ steps.check-version.outputs.changed }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - run: npx vsce package
   upload:
     needs: [build, check-version]
     runs-on: ubuntu-latest
+    if: ${{ steps.check-version.outputs.changed }}
     steps:
     - uses: actions/upload-artifact@v2
       with: 
-        name: touch-bar-display-${{ steps.check-version-outputs-version }}
-        path: ./touch-bar-display-${{ steps.check-version-outputs-version }}
+        name: touch-bar-display-${{ steps.check-version.outputs.version }}
+        path: ./touch-bar-display-${{ steps.check-version.outputs.version }}
