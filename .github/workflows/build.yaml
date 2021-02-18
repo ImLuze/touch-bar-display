@@ -4,8 +4,7 @@ jobs:
   check-version:
     runs-on: ubuntu-latest
     steps:
-    - id: check-version
-      uses: EndBug/version-check@v2
+    - uses: EndBug/version-check@v2
       with:
         file-url: https://raw.githubusercontent.com/ImLuze/touch-bar-display/master/package.json
         diff-search: true
@@ -13,7 +12,7 @@ jobs:
   build:
     needs: [check-version]
     runs-on: ubuntu-latest
-    if: needs.check-version.outputs.changed
+    if: needs.check-version.outputs.changed == true
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
@@ -21,7 +20,7 @@ jobs:
   upload:
     needs: [build, check-version]
     runs-on: ubuntu-latest
-    if: needs.check-version.outputs.changed
+    if: needs.check-version.outputs.changed == true
     steps:
     - uses: actions/upload-artifact@v2
       with: 
