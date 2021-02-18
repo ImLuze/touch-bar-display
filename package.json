@@ -7,7 +7,7 @@
         "url": "https://github.com/ImLuze/touch-bar-display.git"
     },
     "icon": "media/touch-bar-icon.png",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "publisher": "ImLuze",
     "keywords": [
         "macbook",
@@ -60,8 +60,13 @@
                 "icon": "./media/github.png"
             },
             {
+                "command": "test-explorer.focus",
+                "title": "touchbar.7.test",
+                "icon": "./media/beaker.png"
+            },
+            {
                 "command": "workbench.view.extension.dockerView",
-                "title": "touchbar.7.dockerView",
+                "title": "touchbar.8.dockerView",
                 "icon": "./media/container.png"
             }
         ],
@@ -96,6 +101,10 @@
                 {
                     "command": "workbench.view.extension.github-pull-requests",
                     "when": "gitOpenRepositoryCount != 0 && github:hasGitHubRemotes",
+                    "group": "display"
+                },
+                {
+                    "command": "test-explorer.focus",
                     "group": "display"
                 },
                 {
