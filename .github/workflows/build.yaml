@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: EndBug/version-check@v2
+      with:
+        diff-search: true
+        assume-same-version: new
   upload:
     needs: [build, check-version]
     runs-on: ubuntu-latest
